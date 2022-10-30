@@ -1,8 +1,8 @@
 import { gql } from "@apollo/client";
 
-export const getShipsList = gql`
-    query getShips {
-        ships {
+export const GET_SHIP_LIST = gql`
+    query getShips($limit: Int!, $offset: Int = 0) {
+        ships(limit: $limit, offset: $offset) {
             home_port
             id
             image

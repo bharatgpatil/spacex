@@ -3,14 +3,10 @@
     min-height: 100vh;
     flex-direction: column;
 }
-.buttons {
-    text-align: right;
-    display: block !important;
-    margin: 20px 10px;
-}
+
 .wrapper {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
     width: 100%;
 
     &.list {
