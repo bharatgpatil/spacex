@@ -1,0 +1,41 @@
+.wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 100%;
+
+    &.list {
+        grid-template-columns: 1fr;
+        .col {
+            margin: 1rem;
+            .content {
+                display: inline-block;
+                .ship-title {
+                    margin-top: 1rem;
+                }
+                img {
+                    width: 200px;
+                    height: 120px;
+                }
+                &.details {
+                    margin-left: 2rem;
+                }
+            }
+        }
+    }
+
+    &.grid {
+        .col {
+            width: 300px;
+            margin: 3rem;
+            .content {
+                img {
+                    width: 300px;
+                    height: 180px;
+                }
+                &.details {
+                    margin-top: 1rem;
+                }
+            }
+        }
+    }
+}

@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { ShipInterface } from "../types/ship";
-import Ship from "./Ship";
+import { ShipInterface } from "../../types/ship";
+import Ship from "./Ship/Ship";
 import "./ShipList.scss";
-import ViewSwitcher from "./ViewSwitcher";
+import ViewSwitcher from "./ViewSwitcher/ViewSwitcher";
 import { useLazyQuery } from "@apollo/client";
-import { GET_SHIP_LIST } from "../GraphQl/ships";
+import { GET_SHIP_LIST } from "../../GraphQl/ships";
 import { Box, CircularProgress } from "@mui/material";
 
 export const ShipList = () => {
@@ -39,7 +39,7 @@ export const ShipList = () => {
     }, []);
 
     useEffect(() => {
-        if (!isFetching) return;
+        if (!isFetching || page === 2) return; // API does not return max number of records/ships so to need keep calling again after offset 30 since there are only 22 ships avaible
         setPage(page + 1);
         fetchMoreList();
     }, [isFetching]);
@@ -54,8 +54,8 @@ export const ShipList = () => {
         setIsFetching(true);
     }
     return (
-        <div className="container">
-            <ViewSwitcher view={view} setView={setView} />
+        <>
+            {!loading ? <ViewSwitcher view={view} setView={setView} /> : null}
             {loading || isFetching ? (
                 <Box sx={{ display: "flex" }} className="loader-container">
                     <CircularProgress className="loader" />
@@ -66,8 +66,7 @@ export const ShipList = () => {
                     <Ship ship={sp} key={i} />
                 ))}
             </div>
-            {error ? <div>Error loading data!</div> : null}
-        </div>
+        </>
     );
 };
 

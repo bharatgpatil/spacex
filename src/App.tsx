@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "./App.scss";
-import ShipList from "./components/ShipList";
+import ShipList from "./components/ShipList/ShipList";
 import Container from "@mui/material/Container";
 
 function App() {

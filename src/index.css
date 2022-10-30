@@ -11,24 +11,3 @@ code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
         monospace;
 }
-.pagination {
-    display: inline-block;
-    padding: 0;
-}
-.pagination li {
-    display: inline-block;
-    margin: 0 1rem;
-}
-.pagination a {
-    cursor: pointer;
-    outline: none;
-}
-.pagination a :first-child {
-    margin: 0;
-}
-.pagination a .disabled {
-    opacity: 0.6;
-}
-.pagination a.active {
-    font-weight: bold;
-}
