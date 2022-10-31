@@ -1,11 +1,10 @@
-.wrapper {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    width: 100%;
 
-    &.list {
-        grid-template-columns: 1fr;
-        .col {
+
+    .list {
+       
+        .ship-card{
+            max-width: 100%;
+        
             margin: 1rem;
             .content {
                 display: inline-block;
@@ -22,20 +21,21 @@
             }
         }
     }
+    
 
-    &.grid {
-        .col {
-            width: 300px;
-            margin: 3rem;
+    .grid {
+            .ship-card{
+                max-width: 350px;
+            
             .content {
                 img {
                     width: 300px;
                     height: 180px;
                 }
                 &.details {
-                    margin-top: 1rem;
+                    margin: 1rem;
                 }
             }
         }
     }
-}
+

@@ -5,7 +5,7 @@ import "./ShipList.scss";
 import ViewSwitcher from "./ViewSwitcher/ViewSwitcher";
 import { useLazyQuery } from "@apollo/client";
 import { GET_SHIP_LIST } from "../../GraphQl/ships";
-import { Box, CircularProgress } from "@mui/material";
+import { Box, CircularProgress, Grid } from "@mui/material";
 
 export const ShipList = () => {
     const [view, setView] = useState("grid");
@@ -61,10 +61,13 @@ export const ShipList = () => {
                     <CircularProgress className="loader" />
                 </Box>
             ) : null}
-            <div className={` wrapper ${view}`} id="wrapper">
-                {ships.map((sp: ShipInterface, i) => (
-                    <Ship ship={sp} key={i} />
-                ))}
+            <div className = {view} id="wrapper">
+                <Grid container spacing={2}>
+                    {ships.map((sp: ShipInterface, i) => (
+                        <Ship ship={sp} key={i} view={view}/>
+                    
+                    ))}
+                </Grid> 
             </div>
         </>
     );
