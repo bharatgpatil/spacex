@@ -56,18 +56,17 @@ export const ShipList = () => {
     return (
         <>
             {!loading ? <ViewSwitcher view={view} setView={setView} /> : null}
-            {loading || isFetching ? (
+            {loading ? (
                 <Box sx={{ display: "flex" }} className="loader-container">
                     <CircularProgress className="loader" />
                 </Box>
             ) : null}
-            <div className = {view} id="wrapper">
+            <div className={view} id="wrapper">
                 <Grid container spacing={2}>
                     {ships.map((sp: ShipInterface, i) => (
-                        <Ship ship={sp} key={i} view={view}/>
-                    
+                        <Ship ship={sp} key={i} view={view} />
                     ))}
-                </Grid> 
+                </Grid>
             </div>
         </>
     );
